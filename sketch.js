@@ -1,7 +1,7 @@
 // Binary tree
 //import {PythonShell} from 'python-shell';
 //const codeBlockWriter = Require("code-block-writer");
-var http = require('code-block-writer');
+//var http = require('code-block-writer');
 var tree, inputID, inputVal, button;
 
 function setup() {
@@ -56,6 +56,7 @@ function setup() {
   var textContent = document.createTextNode(tree.generatePythonCode());
   p.appendChild(textContent);
   div.appendChild(p); 
+  div.setAttribute('id', 'generatePython');
   document.body.appendChild(div);
 
   /*PythonShell.runString('x=1+1;print(x)', null, function (err) {
@@ -82,4 +83,5 @@ function addNodeFunc() {
   tree.addValueId(inputID.value(), inputVal.value());
   //location.reload();
   tree.traverse();
+  document.getElementById('generatePython').innerHTML = tree.generatePythonCode();
 }
