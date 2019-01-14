@@ -1,9 +1,37 @@
 // Binary tree
-var tree;
+//import {PythonShell} from 'python-shell';
+//const codeBlockWriter = Require("code-block-writer");
+var http = require('code-block-writer');
+var tree, inputID, inputVal, button;
 
 function setup() {
-  createCanvas(1300, 400);
+  var div = document.createElement('div');
+  div.setAttribute('id', 'CGTitle');
+  var p = document.createElement('p');
+  var textContent = document.createTextNode("Computational Graph");
+  p.appendChild(textContent);
+  div.appendChild(p); 
+  document.body.appendChild(div);
+ 
+ /* var addNodeBtn = document.createElement('BUTTON');
+  var btnText = document.createTextNode('Add Node');
+  addNodeBtn.appendChild(btnText);
+  document.body.appendChild(addNodeBtn);*/
 
+  createCanvas(1300, 400);
+ // create canvas
+  //createCanvas(1300, 100);
+
+  inputID = createInput();
+  inputID.position(20, 65);
+
+  inputVal = createInput();
+  inputVal.position(20, 85);
+
+  button = createButton('add node');
+  button.position(inputID.x + inputID.width, 65);
+  button.mousePressed(addNodeFunc);
+//
   // New tree
   tree = new Tree();
 
@@ -24,10 +52,17 @@ function setup() {
   //tree.addValueId(5, 13);
 
   var div = document.createElement('div');
+  var p = document.createElement('p');
   var textContent = document.createTextNode(tree.generatePythonCode());
-  div.appendChild(textContent);
+  p.appendChild(textContent);
+  div.appendChild(p); 
   document.body.appendChild(div);
-  
+
+  /*PythonShell.runString('x=1+1;print(x)', null, function (err) {
+    if (err) throw err;
+    console.log('finished');
+  });*/
+
   background(255);
 
   // Traverse the tree
@@ -40,4 +75,11 @@ function setup() {
   } else {
     console.log(result);
   }
+
+}
+
+function addNodeFunc() {
+  tree.addValueId(inputID.value(), inputVal.value());
+  //location.reload();
+  tree.traverse();
 }

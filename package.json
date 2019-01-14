@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "computationalgraph",
+  "version": "0.0.1",
+  "description": "Computational Graph Description",
+  "author": "kevseryolcu",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "browserify": "^16.2.3",
+    "browserify-shim": "^3.8.14",
+    "code-block-writer": "^7.2.2",
+    "python-shell": "^1.0.7",
+    "save": "^2.3.3",
+    "systemjs": "^3.0.0"
+  },
+  "devDependencies": {},
+  "license": "ISC"
+}
