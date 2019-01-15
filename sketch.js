@@ -38,13 +38,13 @@ function setup() {
   //   tree.addValue(floor(random(0, 100)));
   // }
   //tree.addValue(5);
-  tree.addValueId('+', '+');//null olmamalı mı
-  tree.addValueId('+', '*');
+  tree.addValueId(1, '+');//null olmamalı mı
+  /*tree.addValueId('+', '*');
   tree.addValueId('+', '-');
   tree.addValueId('*', 'a');
   tree.addValueId('*', 'b');
   tree.addValueId('-', '100');
-  tree.addValueId('-', '13');
+  tree.addValueId('-', '13');*/
   //tree.addValueId('/', '20');
   //tree.addValueId('/', '2');
   //tree.addValueId(5, 13);

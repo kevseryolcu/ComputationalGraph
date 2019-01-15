@@ -1,3 +1,4 @@
+var counter = 1;
 // Tree object
 function Tree() {
   // Just store the root
@@ -29,12 +30,13 @@ Tree.prototype.addValue = function(val) {
 }
 
 Tree.prototype.addValueId = function(id, val) {
-  var n = new Node(val, val);
+  var n = new Node(val, counter);
   if (this.root == null) {
     this.root = n;
     // An initial position for the root node
     this.root.x = width / 2;
     this.root.y = 16;
+    counter++;
   } else {
     this.root.addNodeId(id, n);
   }
@@ -60,12 +62,29 @@ Tree.prototype.generatePythonCode = function(){
   let resultStr = this.generateCodeStr(this.root, inputs);
   if(resultStr == null)
     return null;
-  let res = 'def function(';
+  let res = 'def function( ';
   for(i in inputs) {
     res += inputs[i] + ',';
   }
   res = res.slice(0, -1);
   res += '):\n\t\nreturn ' + resultStr;
+
+  //check code
+  pythonCodeArr = resultStr.split(' ');
+
+  var isValid = '';
+
+  if(pythonCodeArr != null) {
+    var check = isOperator(pythonCodeArr[0]);
+    for (i = 1; i < pythonCodeArr.length; i++) {
+      if(check == isOperator(pythonCodeArr[i])) {
+        isValid = 'not valid'
+      }
+      check = isOperator(pythonCodeArr[i]);
+    }
+  }
+  //end of check code
+  res += ' ' + isValid;
   return res;
 }
 
