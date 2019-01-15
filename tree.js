@@ -60,6 +60,7 @@ function isNumber(n) {
 
 Tree.prototype.generatePythonCode = function(){
   var inputs = [];
+  var resultArr = [];
   let resultStr = this.generateCodeStr(this.root, inputs);
   if(resultStr == null)
     return null;
@@ -68,25 +69,28 @@ Tree.prototype.generatePythonCode = function(){
     res += inputs[i] + ',';
   }
   res = res.slice(0, -1);
-  res += '):\n\t\nreturn ' + resultStr;
+  res += '):';
+  resultArr.push(res);
+
+  resultArr.push('return ' + resultStr);
 
   //check code
   pythonCodeArr = resultStr.split(' ');
 
-  var isValid = '';
+  var isValid = 'Code is valid';
 
   if(pythonCodeArr != null) {
     var check = isOperator(pythonCodeArr[0]);
     for (i = 1; i < pythonCodeArr.length; i++) {
       if(check == isOperator(pythonCodeArr[i])) {
-        isValid = 'not valid'
+        isValid = 'Code is not valid'
       }
       check = isOperator(pythonCodeArr[i]);
     }
   }
+  resultArr.push(isValid);
   //end of check code
-  res += ' ' + isValid;
-  return res;
+  return resultArr;
 }
 
 Tree.prototype.generateCodeStr = function(root, inputs) {

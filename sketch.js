@@ -1,7 +1,7 @@
 // Binary tree
 //import {PythonShell} from 'python-shell';
 //const codeBlockWriter = Require("code-block-writer");
-var http = require('code-block-writer');
+//var http = require('code-block-writer');
 var tree, inputID, inputVal, button;
 
 function setup() {
@@ -33,11 +33,6 @@ function setup() {
   // New tree
   tree = new Tree();
 
-  // Add ten random values
-  // for (var i = 0; i < 10; i++) {
-  //   tree.addValue(floor(random(0, 100)));
-  // }
-  //tree.addValue(5);
   tree.addValueId(1, '+');//null olmamalı mı
   /*tree.addValueId('+', '*');
   tree.addValueId('+', '-');
@@ -49,13 +44,29 @@ function setup() {
   //tree.addValueId('/', '2');
   //tree.addValueId(5, 13);
 
-  var div = document.createElement('div');
-  var p = document.createElement('p');
-  var textContent = document.createTextNode(tree.generatePythonCode());
-  p.appendChild(textContent);
-  div.appendChild(p); 
-  div.setAttribute('id', 'generatePython');
-  document.body.appendChild(div);
+  var pythonCode = tree.generatePythonCode();
+  var divPy = document.createElement('div');
+
+  //function definition
+  var pyDef = document.createElement('p');
+  pyDef.appendChild(document.createTextNode(pythonCode[0]));
+  pyDef.setAttribute('id', 'functionDef');
+  divPy.appendChild(pyDef); 
+  
+  //function body
+  var pyBody = document.createElement('p');
+  pyBody.appendChild(document.createTextNode(pythonCode[1]));
+  pyBody.setAttribute('id', 'functionBody');
+  divPy.appendChild(pyBody); 
+
+  //isValid
+  var isValid = document.createElement('p');
+  isValid.appendChild(document.createTextNode(pythonCode[2]));
+  isValid.setAttribute('id', 'isValid');
+  divPy.appendChild(isValid); 
+
+  divPy.setAttribute('id', 'generatePython');
+  document.body.appendChild(divPy);
 
   /*PythonShell.runString('x=1+1;print(x)', null, function (err) {
     if (err) throw err;
@@ -81,5 +92,10 @@ function addNodeFunc() {
   tree.addValueId(inputID.value(), inputVal.value());
   //location.reload();
   tree.traverse();
-  document.getElementById('generatePython').innerHTML = tree.generatePythonCode();
+  //document.getElementById('generatePython').innerHTML = tree.generatePythonCode();
+  
+  var pythonCode = tree.generatePythonCode();
+  document.getElementById('functionDef').innerHTML = pythonCode[0];
+  document.getElementById('functionBody').innerHTML = pythonCode[1];
+  document.getElementById('isValid').innerHTML = pythonCode[2];
 }
