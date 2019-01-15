@@ -38,7 +38,8 @@ Tree.prototype.addValueId = function(id, val) {
     this.root.y = 16;
     counter++;
   } else {
-    this.root.addNodeId(id, n);
+    if(this.root.addNodeId(id, n))
+      counter++;
   }
 }
 
