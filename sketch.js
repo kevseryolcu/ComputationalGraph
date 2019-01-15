@@ -33,16 +33,13 @@ function setup() {
   // New tree
   tree = new Tree();
 
-  //tree.addValueId(1, '+');//null olmamalı mı
-  /*tree.addValueId('+', '*');
-  tree.addValueId('+', '-');
-  tree.addValueId('*', 'a');
-  tree.addValueId('*', 'b');
-  tree.addValueId('-', '100');
-  tree.addValueId('-', '13');*/
-  //tree.addValueId('/', '20');
-  //tree.addValueId('/', '2');
-  //tree.addValueId(5, 13);
+  /*tree.addValueId(1, '+');
+  tree.addValueId(1, 3);
+  tree.addValueId(1, '*');
+  tree.addValueId(3, '+');
+  tree.addValueId(3, 2);
+  tree.addValueId(4, 'a');
+  tree.addValueId(4, 'b');*/
 
   var pythonCode = tree.generatePythonCode();
   if(pythonCode.length == 0) {
