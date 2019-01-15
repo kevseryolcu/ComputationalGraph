@@ -18,7 +18,7 @@ function setup() {
   addNodeBtn.appendChild(btnText);
   document.body.appendChild(addNodeBtn);*/
 
-  createCanvas(1300, 400);
+  createCanvas(1300, 700);
 
   inputID = createInput();
   inputID.position(20, 65);
@@ -33,7 +33,7 @@ function setup() {
   // New tree
   tree = new Tree();
 
-  tree.addValueId(1, '+');//null olmamalı mı
+  //tree.addValueId(1, '+');//null olmamalı mı
   /*tree.addValueId('+', '*');
   tree.addValueId('+', '-');
   tree.addValueId('*', 'a');
@@ -45,6 +45,11 @@ function setup() {
   //tree.addValueId(5, 13);
 
   var pythonCode = tree.generatePythonCode();
+  if(pythonCode.length == 0) {
+    pythonCode.push(' ');
+    pythonCode.push(' ');
+    pythonCode.push(' ');
+  }
   var divPy = document.createElement('div');
 
   //function definition
@@ -68,12 +73,12 @@ function setup() {
   divPy.setAttribute('id', 'generatePython');
   document.body.appendChild(divPy);
 
-  /*PythonShell.runString('x=1+1;print(x)', null, function (err) {
-    if (err) throw err;
-    console.log('finished');
-  });*/
-
   background(255);
+
+  //footer
+  /*var footer = document.createElement('footer');
+  footer.appendChild(document.createTextNode('Kevser Yolcu'));
+  document.body.appendChild(footer);*/
 
   // Traverse the tree
   tree.traverse();

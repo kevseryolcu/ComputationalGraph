@@ -24,30 +24,32 @@ Node.prototype.search = function(val) {
 }
 
 Node.prototype.visit = function(parent) {
-  // Recursively go left
-  if (this.left != null) {
-    this.left.visit(this);
-  }
-  // Print out the value
-  console.log(this.value);
+  if(parent != null){
+    // Recursively go left
+    if (this.left != null) {
+      this.left.visit(this);
+    }
+    // Print out the value
+    console.log(this.value);
 
-  // Draw a line from the parent
-  stroke(100);
-  line(parent.x, parent.y, this.x, this.y);
-  // Draw a circle
-  stroke(0);
-  fill(200);
-  ellipse(this.x, this.y, 24, 24);
-  noStroke();
-  // Display the value
-  fill(0);
-  textAlign(RIGHT);
-  textSize(12);
-  text('value: ' + this.value + "\nid: " + this.id, this.x, this.y + 4);
+    // Draw a line from the parent
+    stroke(100);
+    line(parent.x, parent.y, this.x, this.y);
+    // Draw a circle
+    stroke(0);
+    fill(200);
+    ellipse(this.x, this.y, 24, 24);
+    noStroke();
+    // Display the value
+    fill(0);
+    textAlign(RIGHT);
+    textSize(12);
+    text('value: ' + this.value + "\nid: " + this.id, this.x, this.y + 4);
 
-  // Go right
-  if (this.right != null) {
-    this.right.visit(this);
+    // Go right
+    if (this.right != null) {
+      this.right.visit(this);
+    }
   }
 }
 

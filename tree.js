@@ -7,13 +7,17 @@ function Tree() {
 
 // Start by visiting the root
 Tree.prototype.traverse = function() {
-  this.root.visit(this.root);
+  if(this.root!= null) {
+    this.root.visit(this.root);
+  }
 }
 
 // Start by searching the root
 Tree.prototype.search = function(val) {
-  var found = this.root.search(val);
-  return found;
+  if(this.root!= null) {
+    return this.root.search(val); 
+  }
+  return null;
 }
 
 // Add a new value to the tree
@@ -63,7 +67,7 @@ Tree.prototype.generatePythonCode = function(){
   var resultArr = [];
   let resultStr = this.generateCodeStr(this.root, inputs);
   if(resultStr == null)
-    return null;
+    return resultArr;
   let res = 'def function( ';
   for(i in inputs) {
     res += inputs[i] + ',';
@@ -78,12 +82,14 @@ Tree.prototype.generatePythonCode = function(){
   pythonCodeArr = resultStr.split(' ');
 
   var isValid = 'Code is valid';
-
+  if(pythonCodeArr.length == 1) {
+    isValid = 'Code is not valid';
+  }
   if(pythonCodeArr != null) {
     var check = isOperator(pythonCodeArr[0]);
     for (i = 1; i < pythonCodeArr.length; i++) {
-      if(check == isOperator(pythonCodeArr[i])) {
-        isValid = 'Code is not valid'
+      if(check == isOperator(pythonCodeArr[i]) || pythonCodeArr[i] == 'null') {
+        isValid = 'Code is not valid';
       }
       check = isOperator(pythonCodeArr[i]);
     }
