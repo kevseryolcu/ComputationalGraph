@@ -37,7 +37,7 @@ Node.prototype.visit = function(parent) {
   // Draw a circle
   stroke(0);
   fill(200);
-  rect(this.x, this.y, 24, 24);
+  ellipse(this.x, this.y, 24, 24);
   noStroke();
   // Display the value
   fill(0);

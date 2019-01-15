@@ -1,7 +1,7 @@
 // Binary tree
 //import {PythonShell} from 'python-shell';
 //const codeBlockWriter = Require("code-block-writer");
-//var http = require('code-block-writer');
+var http = require('code-block-writer');
 var tree, inputID, inputVal, button;
 
 function setup() {
@@ -19,8 +19,6 @@ function setup() {
   document.body.appendChild(addNodeBtn);*/
 
   createCanvas(1300, 400);
- // create canvas
-  //createCanvas(1300, 100);
 
   inputID = createInput();
   inputID.position(20, 65);
@@ -28,8 +26,8 @@ function setup() {
   inputVal = createInput();
   inputVal.position(20, 85);
 
-  button = createButton('add node');
-  button.position(inputID.x + inputID.width, 65);
+  button = createButton('Add Node');
+  button.position(20, 105);
   button.mousePressed(addNodeFunc);
 //
   // New tree
