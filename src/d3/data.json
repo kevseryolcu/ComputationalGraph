@@ -1,0 +1,90 @@
+
+{
+    "issueid": "3295658",
+    "issuetype": "Portfolio-Epic",
+    "status": "In Progress",
+    "pirank": 24,
+    "id": "ATROB-2523",
+    "children": [
+      {
+        "issueid": "3288189",
+        "issuetype": "Epic",
+        "status": "Implementation",
+        "id": "ATTDATA-233",
+        "children": [
+          {
+            "issueid": "3305730",
+            "issuetype": "Task",
+            "status": "Implementation",
+            "id": "ATTDATA-363"
+          },
+          {
+            "issueid": "3305723",
+            "issuetype": "Task",
+            "status": "Open",
+            "id": "ATTDATA-361"
+          },
+          {
+            "issueid": "3301728",
+            "issuetype": "Task",
+            "status": "Open",
+            "id": "ATTDATA-336"
+          },
+          {
+            "issueid": "3297381",
+            "issuetype": "Task",
+            "status": "Closed",
+            "id": "ATTDATA-300"
+          },
+          {
+            "issueid": "3295913",
+            "issuetype": "Task",
+            "status": "Review",
+            "id": "ATTDATA-290"
+          },
+          {
+            "issueid": "3295893",
+            "issuetype": "Task",
+            "status": "Open",
+            "id": "ATTDATA-289"
+          },
+          {
+            "issueid": "3291658",
+            "issuetype": "Task",
+            "status": "Closed",
+            "id": "ATTDATA-256"
+          },
+          {
+            "issueid": "3291653",
+            "issuetype": "Task",
+            "status": "Closed",
+            "id": "ATTDATA-255"
+          },
+          {
+            "issueid": "3291530",
+            "issuetype": "Task",
+            "status": "Open",
+            "id": "ATTDATA-253"
+          },
+          {
+            "issueid": "3290232",
+            "issuetype": "Task",
+            "status": "Open",
+            "id": "ATTDATA-247"
+          },
+          {
+            "issueid": "3287061",
+            "issuetype": "Task",
+            "status": "Resolved",
+            "id": "ATTDATA-226"
+          }
+        ]
+      },
+      {
+        "issueid": "3300899",
+        "issuetype": "Request",
+        "status": "REJECTED",
+        "id": "ATI-1478"
+      }
+    ]
+  }
